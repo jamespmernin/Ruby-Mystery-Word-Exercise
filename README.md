@@ -69,9 +69,8 @@ class Word
     # map through the letters array, replacing each letter with an underscore.
     # this will represent the displayed letters save this to an instance variable.
   end
-
-  # Define a method to guess a letter in the word. 
-  # *** Should ultimately return a boolean ***
+ 
+  
   def guess?(letter)
     # use conditional logic to check whether 
     # the array of letters includes the guessed letter.
@@ -85,6 +84,8 @@ class Word
     # loop through the letters array with index. 
     # if the guessed letter matches a character, 
     # replace the underscore at that index with the guessed letter.
+
+    # *** REMINDER: ? methods must return a boolean ***
   end
   
   def guessed_all_correct?
@@ -97,18 +98,16 @@ class Word
 end
 
 class MysteryWordGame
-  # Initialize the amount of lives, the ask_for_word method, and the game loop.
   def initialize
-
+  # Initialize the amount of lives, the ask_for_word method, and the game loop.
   end
 
-  # ask the user for a mystery word and save it to an instance variable
   def ask_for_word
-    
+  # ask the user for a mystery word and save it to an instance variable 
   end
 
-  # Run the game loop until the player wins or loses.
   def game_loop
+    # Run the game loop until the player wins or loses.
     loop do
       # show the current output of the word
       
