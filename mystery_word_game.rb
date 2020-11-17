@@ -38,6 +38,10 @@ class Word
     !@hidden_word.include?('_')
   end
 
+  def letters_left
+    return @hidden_word.count "_"
+  end
+
   def correct_word
     return @word.join("")
   end
@@ -68,8 +72,14 @@ class MysteryWordGame
     # Run the game loop until the player wins or loses.
     loop do
       # show the current output of the word
-      puts "The word is:"
+      puts "The #{@user_word.correct_word.length}-letter word is:"
       @user_word.output_word
+      if @user_word.letters_left == 1
+        s = ''
+      else
+        s = 's'
+      end
+      puts "You have #{@user_word.letters_left} space#{s} left to fill."
       # inform the user how many lives they have left
       if @lives == 1
         puts "Careful! You have only #{@lives} life left."
@@ -98,7 +108,12 @@ class MysteryWordGame
       # if the player guessed all the letters correctly,
       # tell them they win and end the loop with "break"
       if @user_word.guessed_all_correct?
-        puts "You successfully guessed the word! You win!"
+        if @lives == 1
+          life = 'life'
+        else
+          life = 'lives'
+        end
+        puts "You successfully guessed the word '#{@user_word.correct_word}' with #{@lives} #{life} to spare! You win!"
         break
       end
     end
